@@ -8,6 +8,12 @@
 # testing
 /coverage
 
+# eslint
+.eslintcache
+
+# vscode
+.vscode
+
 # production
 /build
 
