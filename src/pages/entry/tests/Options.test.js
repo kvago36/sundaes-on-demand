@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import Options from '../Options'
 
-test('display images', async () => {
+test('display scoops', async () => {
   render(<Options optionType="scoops" />)
 
   const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i })
@@ -13,7 +13,7 @@ test('display images', async () => {
 })
 
 
-test('12', async () => {
+test('display toppings', async () => {
   render(<Options optionType="toppings" />)
 
   const toppingImages = await screen.findAllByRole('img', { name: /topping$/i })
