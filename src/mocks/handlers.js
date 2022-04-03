@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 export const handlers = [
-  rest.get("/scoops", (req, res, ctx) => {
+  rest.get('/scoops', (req, res, ctx) => {
     return res(
       ctx.json([
         { name: "Chocolate", imagePath: "/images/chocolate.png" },
@@ -9,7 +9,8 @@ export const handlers = [
       ])
     );
   }),
-  rest.get("/toppings", (req, res, ctx) => {
+  rest.post('/order', (req, res, ctx) => res(ctx.json({ orderNumber: 12345678 }))),
+  rest.get('/toppings', (req, res, ctx) => {
     return res(
       ctx.json([
         {
