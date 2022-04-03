@@ -14,9 +14,19 @@ test('order phases for happy path', async () => {
   userEvent.type(topping, '2')
 
   const orderButton = screen.getByRole('button', { name: /order sundae!/i })
+  const priceInfo = screen.getByRole('heading', { name: /grand total:/i })
+  expect(priceInfo).toHaveTextContent('5.50')
+
   userEvent.click(orderButton)
 
   const terms = await screen.findByRole('checkbox', { name: /terms and conditions/i })
+  
+  const scoops = await screen.findByRole('heading', { name: /scoops: /i })
+  const toppings = await screen.findByRole('heading', { name: /toppings: /i })
+
+  expect(scoops).toHaveTextContent('4.00')
+  expect(toppings).toHaveTextContent('1.50')
+
   userEvent.click(terms)
 
   const confirmOrder = screen.getByRole('button', { name: /confirm order/i })
